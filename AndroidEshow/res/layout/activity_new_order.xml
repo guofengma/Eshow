@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <include
+        android:id="@+id/tv_top"
+        layout="@layout/layout_titlebar_2" />
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:orientation="vertical" >
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal" >
+	            <TextView
+	                android:id="@+id/tv_1"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="订单价格："/>
+	        	<EditText
+	                android:id = "@+id/et_1"
+	                android:layout_width="match_parent"
+	                android:layout_weight="1"
+	                android:layout_height="wrap_content"/>
+	        </LinearLayout>
+	        <LinearLayout 
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal" >
+	            <TextView
+	                android:id="@+id/tv_3"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="请选择订单类型："/>
+	        	<RadioGroup
+	        	    android:id="@+id/vg_1"
+	        	    android:layout_width="match_parent"
+	        	    android:layout_height="wrap_content"
+	        	    android:orientation="horizontal">
+	        	    <RadioButton 
+	        	        android:id="@+id/rb_1"
+	        	        android:layout_width="wrap_content"
+	        	        android:layout_height="wrap_content"
+	        	        android:text="销售单"/>
+	        	    <RadioButton 
+	        	        android:id="@+id/rb_2"
+	        	        android:layout_width="wrap_content"
+	        	        android:layout_height="wrap_content"
+	        	        android:text="退货单"/>
+	        	</RadioGroup>
+	        </LinearLayout>
+	        <Button 
+	            android:id="@+id/btn_1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="添加商品"/>
+	        <Button 
+	            android:id="@+id/btn_2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="确定"/>
+		</LinearLayout>
+        
+	</LinearLayout>
+	<ListView 
+	    android:id="@+id/lst"
+	    android:layout_width="fill_parent"
+	    android:layout_height="match_parent">
+	    
+	</ListView>
+
+</LinearLayout>
+

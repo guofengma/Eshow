@@ -1,0 +1,150 @@
+<resources>
+
+    <string name="app_name">服装销售管理系统bywangxf</string>
+    
+    <string name="network_unused">请检查网络</string>
+    
+    <!-- 主activity -->
+    <string name="xin_xi">信息</string>
+    <string name="tuan_dui">团队</string>
+    <string name="wo_de_xin_xi">我的信息</string>
+    <string name="ge_ren_zhong_xin">个人中心</string>
+    
+    <string name="zi_xun_xiang_qing">资讯详情</string>
+    <string name="ce_shi">测试</string>
+
+    <!-- 学生信息查询页-->
+    <string name="xue_sheng">学生</string>
+    <string name="xue_yuan">学院</string>
+    <string name="nian_ji">年级</string>
+    <string name="cha_xun">查询</string>
+    <string name="yao_qing">邀请</string>
+    <string name="zhi">-</string>
+    <!-- 教师信息查询页 -->
+    <string name="jiao_shi">教师</string>
+    <string name="gong_ling">工龄</string>
+    <!-- 竞赛信息查询页 -->
+    <string name="zu_dui">组队</string>
+    <string name="jing_sai">竞赛</string>
+    <string name="bao_ming_shi_jian">报名时间</string>
+    
+    <string name="kai_shi_shi_jian">开始时间</string>
+    <string name="jie_shu_shi_jian">结束时间</string>
+    <!-- 商品详情页 -->
+    <string name="fa_bu_ren">发布人：</string>
+    <string name="fa_bu_ri_qi">发布日期：</string>
+    <string name="shang_pin_wei_zhi">商品位置：</string>
+    <string name="gou_mai">购买</string>
+    <string name="shang_pin_xiang_qing">商品详情</string>
+    <string name="biao_ti">标题</string>
+    
+    
+    <!-- 资讯评论listitem -->
+    <string name="xiang_xi_nei_rong">详细内容</string>
+    
+    <!-- 商品list使用字符 -->
+    <string name="shang_pin_ming_cheng">商品名称</string>
+    <string name="jia_ge">价格</string>
+    <string name="yi_shou_shu_mu">已售数目:</string>
+    <string name="jia_ge_fu_hao">￥</string>
+    
+    <!-- 圈子list使用内容 -->
+    <string name="re_men_ping_lun">热门评论：</string>
+    <string name="ping_lun_nei_rong">评论内容</string>
+    <string name="dian_zan_shu">点赞数</string>
+    
+    <!-- 评论alert -->
+    <string name="ti_jiao_ping_lun">提交评论</string>
+    <string name="ti_jiao">提交</string>
+    <string name="qu_xiao">取消</string>
+    <string name="fa_bu_shi_jian">发布时间</string>
+    <string name="yong_hu_hui_fu">用户回复:</string>
+    <string name="ping_lun_shi_jian">评论时间</string>
+    
+    <!-- 订单list -->
+    <string name="shi_jian">时间</string>
+    <string name="zhuang_tai">状态</string>
+    
+    <!-- 用户中心 -->
+    <string name="yong_hu_zhong_xin">用户中心</string>
+    <string name="ping_lu_guan_li">评论管理</string>
+	<string name="wo_de_ding_dan">我的订单</string>
+	<string name="wo_de_idol">上下架商品</string>
+	<string name="lian_xi_wo_men">联系我们</string>
+	<string name="wo_de_quan_zi">我的圈子</string>
+	<string name="she_zhi">个人设置</string>
+	<string name="liu_lan_li_shi">浏览历史</string>
+	
+	<string name="ping_lun">评论</string>
+	
+	<string name="guan_zhu_de_idol">上下架商品</string>
+	<string name="yong_hu_xin_xi_xiu_gai">用户信息修改</string>
+	<string name="zhang_hu_yu_an_quan">账户与安全</string>
+	<string name="tui_chu">退出</string>
+	
+	<!-- 注册 -->
+	<string name="yong_hu_ming">用户名：</string>
+	<string name="mi_ma">密  码：</string>
+	<string name="wo_shi_xue_sheng">我是学生</string>
+	<string name="wo_shi_jiao_shi">我是教师</string>
+	<string name="zhu_ce">注册</string>
+	<string name="ti_xing">提醒</string>
+	<string name="qing_shu_ru_yong_hu_ming">请输入用户名</string>
+	<string name="qing_shu_ru_mi_ma">请输入密码</string>
+	<string name="qing_xuan_ze_lei_xing">请选择类型</string>
+	<string name="qing_tian_xie_xin_xi">请填写信息</string>
+	<string name="zhu_ce_cheng_gong">注册成功</string>
+	<string name="que_ding">确定</string>
+	<!-- 登录 -->
+	<string name="deng_lu">登录</string>
+	<string name="deng_lu_cheng_gong">登录成功</string>
+	<!-- 返回错误相关 -->
+	<string name="xi_tong_yi_chang">系统异常</string>
+	<string name="yong_hu_ming_chong_fu">用户名重复</string>
+	<string name="yong_hu_ming_bu_he_fa">用户名不合法</string>
+	<string name="mi_ma_bu_he_fa">密码不合法</string>
+	<string name="wei_zhi_cuo_wu">未知错误</string>
+	<string name="yong_hu_bu_cun_zai">用户不存在</string>
+	<string name="mi_ma_cuo_wu">密码错误</string>
+	<!-- 个人信息 -->
+	<string name="ge_ren_xin_xi">个人信息</string>
+	<string name="xing_ming">姓名</string>
+	<string name="xue_hao">学号</string>
+	<string name="jiao_gong_hao">教工号</string>
+	<string name="lian_xi_fang_shi">联系方式</string>
+	<string name="ren_jiao_shi_jian">任教时间</string>
+	<string name="xue_xiao">学校</string>
+	<string name="xing_bie">性别</string>
+	<string name="ji_neng">技能</string>
+	<string name="jing_sai_jing_li">竞赛经历</string>
+	<string name="ren_wu">任务</string>
+	<string name="bian_ji">编辑</string>
+	<string name="qing_xian_tian_xie_ge_ren_xin_xi">请先填写个人信息</string>
+	<string name="xin_zeng">新增</string>
+	<string name="qing_shu_ru">请输入</string>
+	<string name="zhi_dui_wu">支队伍</string>
+	
+	<!-- 性别 -->
+	<string name="nan">男</string>
+	<string name="nv">女</string>
+
+	<!-- team -->
+	<string name="jiao_shi_xing_ming">教师姓名:</string>
+	<string name="jing_sai_ming_cheng">竞赛名称:</string>
+	<string name="jing_sai_deng_ji">竞赛等级:</string>
+	<string name="jing_sai_jie_ci">竞赛届次:</string>
+	<string name="tuan_dui_chuang_jian_ren">团队创始人:</string>
+	<string name="tuan_dui_ming_cheng">团队名称:</string>
+	<string name="shi_fu_man_yuan">是否满员:</string>
+	<string name="jia_ru">加入!</string>
+	
+	<!-- 详情 -->
+	<string name="xue_sheng_xiang_qing">学生详情</string>
+	<string name="jiao_shi_xiang_qing">教师详情</string>
+	<string name="jing_sai_xiang_qing">竞赛详情</string>
+	<string name="chuang_jian_dui_wu">创建队伍</string>
+	<string name="tuan_dui_xiang_qing">团队详情</string>
+	
+	<!-- 团队相关操作 -->
+	<string name="shen_qing_jia_ru">申请加入</string>
+</resources>
