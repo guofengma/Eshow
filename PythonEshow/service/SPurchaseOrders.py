@@ -122,3 +122,35 @@ class SPurchaseOrders():
         finally:
             self.session.close()
         return otime
+
+    @trans_params
+    def get_poid_by_time(self, potime):
+        poid = None
+        try:
+            poid = self.session.query(model.PurchaseOrders.POid).filter(model.PurchaseOrders.POtime.like("{0}%".format(potime))).all()
+        except Exception as e:
+            print "=====================message========================"
+            print e.message
+            print "=====================message========================"
+            self.session.rollback()
+        finally:
+            self.session.close()
+        return poid
+
+    @trans_params
+    def get_pnum_by_poid(self, poid):
+        pnum = None
+        try:
+            pnum = self.session.query(model.POitems.Pnum).filter_by(POid=poid).all()
+        except Exception as e:
+            print "=====================message========================"
+            print e.message
+            print "=====================message========================"
+            self.session.rollback()
+        finally:
+            self.session.close()
+        return pnum
+
+if __name__ == '__main__':
+    a = SPurchaseOrders()
+    print a.get_poid_by_time('20180427')

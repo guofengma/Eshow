@@ -47,18 +47,19 @@ public class ProductAdapter extends BaseAdapter{
 		if(convertView == null){
 			holder = new ViewHolder();
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_product, null);
-			holder.Pname = (TextView)convertView.findViewById(R.id.tv_4);
-			holder.Pno = (TextView)convertView.findViewById(R.id.tv_2);
-			holder.Pbrand = (TextView)convertView.findViewById(R.id.tv_6);
-			holder.Pstatus = (TextView)convertView.findViewById(R.id.tv_8);
-			holder.Psize = (TextView)convertView.findViewById(R.id.tv_10);
+			holder.Pnum = (TextView)convertView.findViewById(R.id.tv_8);
+			holder.Pno = (TextView)convertView.findViewById(R.id.tv_4);
+			holder.Pbrand = (TextView)convertView.findViewById(R.id.tv_2);
+			holder.Psize = (TextView)convertView.findViewById(R.id.tv_6);
 		}else{
 			holder = (ViewHolder)convertView.getTag();
 		}
 		ProductEntity entity = entitys.get(position);
 		holder.Pno.setText(entity.getPno());
-		holder.Pname.setText(entity.getPname());
-		holder.Pstatus.setText(entity.getPstatus());
+		holder.Pnum.setText(entity.getPnum() + "¼þ");
+		if(entity.getPnum() == 0){
+			holder.Pnum.setBackgroundColor(R.color.cRed);
+		}
 		holder.Pbrand.setText(entity.getPbrand());
 		holder.Psize.setText(entity.getPsize());
 		convertView.setTag(holder);

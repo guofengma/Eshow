@@ -56,7 +56,7 @@ public class CountAdapter extends BaseAdapter{
 			holder = (ViewHolder)convertView.getTag();
 		}
 		CountEntity entity = entitys.get(position);
-		holder.tvmonth.setText(entity.getPmonth() + "月");
+		holder.tvmonth.setText(entity.getPmonth());
 		holder.tvsaleorder.setText(entity.getPsalenum() + "件");
 		holder.tvresaleorder.setText(entity.getPresalenum() + "件");
 		holder.tvpurchase.setText(entity.getPurchasenum() + "件");

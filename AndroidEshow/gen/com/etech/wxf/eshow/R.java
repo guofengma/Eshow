@@ -119,13 +119,15 @@ public final class R {
         public static final int userphoto=0x7f020026;
     }
     public static final class id {
-        public static final int alert_1=0x7f09001a;
-        public static final int alert_2=0x7f09001b;
-        public static final int bar_text1=0x7f09001c;
-        public static final int bar_text2=0x7f09001d;
-        public static final int bar_text3=0x7f09001f;
-        public static final int bar_text3_layout=0x7f09001e;
-        public static final int bar_text4=0x7f090021;
+        public static final int alert_1=0x7f090019;
+        public static final int alert_2=0x7f09001a;
+        public static final int alert_3=0x7f09001b;
+        public static final int alert_4=0x7f09001c;
+        public static final int bar_text1=0x7f09001d;
+        public static final int bar_text2=0x7f09001e;
+        public static final int bar_text3=0x7f090020;
+        public static final int bar_text4=0x7f090022;
+        public static final int bar_text_layout=0x7f09001f;
         public static final int btn_1=0x7f09000c;
         public static final int btn_2=0x7f090006;
         public static final int btn_3=0x7f090016;
@@ -133,11 +135,10 @@ public final class R {
         public static final int et_2=0x7f090005;
         public static final int et_3=0x7f090017;
         public static final int et_5=0x7f090018;
-        public static final int et_7=0x7f090019;
-        public static final int fl_1=0x7f090022;
+        public static final int fl_1=0x7f090023;
         public static final int fl_fragment_layout=0x7f090007;
         public static final int lst=0x7f090001;
-        public static final int num_1=0x7f090020;
+        public static final int num_1=0x7f090021;
         public static final int rb_1=0x7f09000a;
         public static final int rb_2=0x7f09000b;
         public static final int tv_1=0x7f090002;
@@ -152,8 +153,8 @@ public final class R {
         public static final int tv_7=0x7f090010;
         public static final int tv_8=0x7f090011;
         public static final int tv_9=0x7f090012;
-        public static final int tv_edit=0x7f090024;
-        public static final int tv_title=0x7f090023;
+        public static final int tv_edit=0x7f090025;
+        public static final int tv_title=0x7f090024;
         public static final int tv_top=0x7f090000;
         public static final int vg_1=0x7f090009;
     }

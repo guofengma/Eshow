@@ -19,6 +19,7 @@ import com.etech.wxf.eshow.global.AppConst;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,7 @@ public class PurchaseOrderFragment extends Fragment{
 		}.start();
 		while(true){
 			if(order_list != null){
+				Log.e("order_list", order_list);
 				break;
 			}
 		}
@@ -72,7 +74,7 @@ public class PurchaseOrderFragment extends Fragment{
 		tv1 = (TextView)view.findViewById(R.id.tv_top).findViewById(R.id.tv_title);
 		tv2 = (TextView)view.findViewById(R.id.tv_top).findViewById(R.id.tv_edit);
 		tv1.setText("采购单");
-		tv2.setText("新增");
+		tv2.setText("+");
 		tv2.setOnClickListener(add);
 		
 		setText(order_list);
@@ -101,7 +103,7 @@ public class PurchaseOrderFragment extends Fragment{
 			Intent intent = new Intent(getActivity(), SaleOrderActivity.class);
 			intent.putExtra("Uid", Uid);
 			intent.putExtra("POid", entitys.get(position).getPOid());
-			intent.putExtra("index", 0);
+			intent.putExtra("index", 2);
 			startActivity(intent);
 			getActivity().finish();
 		}
@@ -109,6 +111,7 @@ public class PurchaseOrderFragment extends Fragment{
 	};
 	
 	private void setText(String task_list){
+		Log.e("list", task_list);
 		if(task_list == null){
 			Toast.makeText(getActivity(), "获取数据失败", Toast.LENGTH_SHORT);
 		}else{

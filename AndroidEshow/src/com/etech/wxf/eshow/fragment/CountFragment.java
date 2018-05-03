@@ -49,6 +49,10 @@ public class CountFragment extends Fragment{
 	private String url_get_no = "http://" 
 			+ AppConst.sServerURL 
 			+ "/wxf/counts/get_all_by_time_no";
+	
+	private String url_get_week = "http://" 
+			+ AppConst.sServerURL 
+			+ "/wxf/counts/get_num_by_time";
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -62,6 +66,11 @@ public class CountFragment extends Fragment{
 		new Thread(){
 			public void run(){
 				getText2();
+			}
+		}.start();
+		new Thread(){
+			public void run(){
+				getText3();
 			}
 		}.start();
 		while(true){
@@ -84,13 +93,53 @@ public class CountFragment extends Fragment{
 		tv1 = (TextView)view.findViewById(R.id.tv_top).findViewById(R.id.tv_title);
 		tv2 = (TextView)view.findViewById(R.id.tv_top).findViewById(R.id.tv_edit);
 		tv1.setText("统计数据");
-		tv2.setVisibility(View.GONE);
+		//tv2.setVisibility(View.GONE);
+		tv2.setText("周报");
+		tv2.setOnClickListener(get_week);
 		btn1 = (Button)view.findViewById(R.id.btn_1);
 		et1 = (EditText)view.findViewById(R.id.et_1);
 		btn1.setOnClickListener(select);
 		adapter = new CountAdapter(getActivity(), entitys);
 		lst.setAdapter(adapter);
 	}
+	
+	private OnClickListener get_week = new OnClickListener(){
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			Log.e("data_week", week_text);
+			if(week_text != null){
+				JSONObject json_week = StringToJSON.toJSONObject(week_text);
+				String data_text = json_week.optString("data");
+				JSONArray json_data = StringToJSON.toJSONArray(data_text);
+				entitys.clear();
+				for(int i = 0; i < json_data.length(); i++){
+					try {
+						JSONObject json_item = json_data.getJSONObject(i);
+						CountEntity entity = new CountEntity();
+						entity.setPmonth(json_item.optString("time"));
+						entity.setPurchasenum(json_item.optInt("Purchasenum"));
+						entity.setPsalenum(json_item.optInt("Salenum"));
+						entity.setPresalenum(json_item.optInt("RSalenum"));
+						entitys.add(entity);
+					} catch (JSONException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+				Log.e("entitys.size", entitys.size() + " ");
+				if(entitys.size() == 0){
+					Toast.makeText(getActivity(), "系统异常", Toast.LENGTH_SHORT);
+				}else{
+					adapter.notifyDataSetChanged();
+				}
+			}
+			
+			
+		}
+		
+	};
 	
 	private OnClickListener select = new OnClickListener(){
 
@@ -116,7 +165,7 @@ public class CountFragment extends Fragment{
 							JSONObject obj_sale = array_sale.getJSONObject(j);
 							JSONObject obj_resale = array_resale.getJSONObject(j);
 							JSONObject obj_purchase = array_purchase.getJSONObject(j);
-							entity.setPmonth(j + 1);
+							entity.setPmonth(j + 1 + "月");
 							entity.setPsalenum(obj_sale.optInt("num"));
 							entity.setPresalenum(obj_resale.optInt("num"));
 							entity.setPurchasenum(obj_purchase.optInt("num"));
@@ -147,7 +196,7 @@ public class CountFragment extends Fragment{
 							JSONObject obj_purchase = array_purchase.getJSONObject(j);
 							entity.setPsalenum(obj_sale.optInt("num"));
 							entity.setPresalenum(obj_resale.optInt("num"));
-							entity.setPmonth(j);
+							entity.setPmonth(j + 1 + "月");
 							entity.setPurchasenum(obj_purchase.optInt("num"));
 							entitys.add(entity);
 						}
@@ -187,6 +236,20 @@ public class CountFragment extends Fragment{
 		try {
 			//brand_text = getEntity.doGet(url_get_brand);
 			no_text = getEntity.doGet(url_get_no);
+			//Log.e("brand_text", brand_text);
+			//Log.e("no_text", no_text);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private String week_text;
+	private void getText3(){
+		getEntity = new HttpgetEntity();
+		try {
+			//brand_text = getEntity.doGet(url_get_brand);
+			week_text = getEntity.doGet(url_get_week);
 			//Log.e("brand_text", brand_text);
 			//Log.e("no_text", no_text);
 		} catch (Exception e) {

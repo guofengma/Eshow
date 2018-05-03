@@ -74,7 +74,10 @@ class SProducts():
         try:
             product_list = self.session.query(model.Products.Pid, model.Products.Pname, model.Products.Pbrand,
                                              model.Products.Pno, model.Products.Psize, model.Products.Pstatus,
-                                             model.Products.Pnum, model.Products.Pprice).all()
+                                             model.Products.Pnum, model.Products.Pprice).filter_by(Pstatus=101)\
+                .order_by(model.Products.Pbrand.desc())\
+                .order_by(model.Products.Pno.desc())\
+                .order_by(model.Products.Psize.desc()).all()
         except Exception as e:
             print "=====================message========================"
             print e.message
@@ -84,10 +87,10 @@ class SProducts():
             self.session.close()
         return product_list
 
-    def get_pid_by_pno(self, pno):
+    def get_pid_by_pno(self, pno, pbrand, psize):
         pid = None
         try:
-            pid = self.session.query(model.Products.Pid).filter_by(Pno=pno).scalar()
+            pid = self.session.query(model.Products.Pid).filter_by(Pno=pno).filter_by(Pbrand=pbrand).filter_by(Psize=psize).scalar()
         except Exception as e:
             print "=====================message========================"
             print e.message

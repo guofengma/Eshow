@@ -38,10 +38,10 @@ class CPurchaseOrders():
             return system_error
 
         for row in data["POrder_items"]:
-            if "Pno" not in row or "Pnum" not in row:
+            if "Pno" not in row or "Pnum" not in row or "Pbrand" not in row or "Psize" not in row:
                 return param_miss
 
-            Pid = self.sproducts.get_pid_by_pno(row["Pno"])
+            Pid = self.sproducts.get_pid_by_pno(row["Pno"], row["Pbrand"], row["Psize"])
             if not Pid:
                 return system_error
             add_poitem = self.spurchaseorder.new_poitem(POid, Pid, row["Pnum"])
@@ -86,6 +86,7 @@ class CPurchaseOrders():
             order_item["Pname"] = product.Pname
             order_item["Pbrand"] = product.Pbrand
             order_item["Psize"] = product.Psize
+            order_item["Pno"] = product.Pno
             data["POrder_items"].append(order_item)
 
         response_ok["data"] = data
@@ -97,6 +98,9 @@ class CPurchaseOrders():
             return system_error
         data = []
         for row in order_list:
+            print "======================row==========================="
+            print row
+            print "======================row==========================="
             data_item = {}
             data_item["POid"] = row.POid
             data_item["POtime"] = row.POtime
@@ -107,6 +111,9 @@ class CPurchaseOrders():
             if not order_items:
                 return system_error
             for raw in order_items:
+                print "======================raw==========================="
+                print raw
+                print "======================raw==========================="
                 order_item = {}
                 product = self.sproducts.get_product_by_pid(raw.Pid)
                 if not product:

@@ -38,10 +38,10 @@ class CSaleOrders():
             return system_error
 
         for row in data["Order_items"]:
-            if "Pno" not in row or "Pnum" not in row:
+            if "Pno" not in row or "Pnum" not in row or "Pbrand" not in row or "Psize" not in row:
                 return param_miss
 
-            Pid = self.sproducts.get_pid_by_pno(row["Pno"])
+            Pid = self.sproducts.get_pid_by_pno(row["Pno"], row["Pbrand"], row["Psize"])
             print "=============================Pid====================="
             print Pid
             print "=============================Pid====================="
@@ -117,6 +117,7 @@ class CSaleOrders():
                 order_item["Pnum"] = raw.Pnum
                 order_item["Pname"] = product.Pname
                 order_item["Pbrand"] = product.Pbrand
+                order_item["Pno"] = product.Pno
                 order_item["Psize"] = product.Psize
                 data_item["Order_items"].append(order_item)
             data.append(data_item)

@@ -58,6 +58,7 @@ public class SaleOrderActivity extends Activity{
 				break;
 			}
 		}
+		init();
 	}
 	
 	private String Uid;
@@ -116,7 +117,8 @@ public class SaleOrderActivity extends Activity{
 		}else if(index == 2){
 			tvtitle.setText("采购单详情");
 			tv1.setText("采购单创建时间：");
-			tv3.setText("采购单状态：");
+			tv3.setVisibility(View.GONE);
+			tv4.setVisibility(View.GONE);
 			tv5.setText("采购单价格：");
 		}
 		
@@ -157,7 +159,7 @@ public class SaleOrderActivity extends Activity{
 				order_item = json_data.optString("Order_items");
 			}else if(index == 2){
 				tv2.setText(json_data.optString("POtime"));
-				tv4.setText(deal_status(json_data.optInt("POstatus")));
+				//tv4.setText(deal_status(json_data.optInt("POstatus")));
 				tv6.setText(json_data.optDouble("POprice") + "元");
 				order_item = json_data.optString("POrder_items");
 			}
@@ -172,7 +174,7 @@ public class SaleOrderActivity extends Activity{
 						entity.setPno(json_item.optString("Pno"));
 						entity.setPbrand(json_item.optString("Pbrand"));
 						entity.setPname(json_item.optString("Pname"));
-						entity.setPsize(json_item.optInt("Otime"));
+						entity.setPsize(json_item.optInt("Psize"));
 						entity.setPnum(json_item.optInt("Pnum"));
 						entitys.add(entity);
 					} catch (JSONException e) {

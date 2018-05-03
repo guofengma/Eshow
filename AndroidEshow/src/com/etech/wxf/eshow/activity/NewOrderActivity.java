@@ -21,6 +21,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -122,6 +123,8 @@ public class NewOrderActivity extends Activity{
 				for(int i = 0; i < entitys.size(); i++){
 					json_item.put("Pno", entitys.get(i).getPno());
 					json_item.put("Pnum", entitys.get(i).getPnum());
+					json_item.put("Pbrand", entitys.get(i).getPbrand());
+					json_item.put("Psize", deal_size(entitys.get(i).getPsize()));
 					json_items.put(json_item);
 				}
 				if(index == 1){
@@ -169,6 +172,26 @@ public class NewOrderActivity extends Activity{
 		
 	};
 	
+	private int deal_size(String size){
+		int deal_size = 0;
+		if(size.equals("XS")){
+			deal_size = 1;
+		}else if(size.equals("S")){
+			deal_size = 2;
+		}else if(size.equals("M")){
+			deal_size = 3;
+		}else if(size.equals("L")){
+			deal_size = 4;
+		}else if(size.equals("XL")){
+			deal_size = 5;
+		}else if(size.equals("XXL")){
+			deal_size = 6;
+		}else{
+			deal_size = 0;
+		}
+		return deal_size;
+	}
+	
 	private OnClickListener add_product = new OnClickListener(){
 
 		@Override
@@ -200,8 +223,12 @@ public class NewOrderActivity extends Activity{
 		builder.setTitle(title);
 		final EditText et_name = (EditText)view.findViewById(R.id.alert_1);
 		final EditText et_no = (EditText)view.findViewById(R.id.alert_2);
-		et_name.setHint("请输入商品编号");
-		et_no.setHint("请输入采购数量");
+		final EditText et_3 = (EditText)view.findViewById(R.id.alert_3);
+		final EditText et_4 = (EditText)view.findViewById(R.id.alert_4);
+		et_name.setHint("请输入品牌");
+		et_no.setHint("请输入货号");
+		et_3.setHint("请输入尺码");
+		et_4.setHint("请输入数量");
 		builder.setView(view);
 		builder.setPositiveButton("确定", new DialogInterface.OnClickListener(){
 
@@ -209,8 +236,14 @@ public class NewOrderActivity extends Activity{
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
 				NewOrderEntity entity = new NewOrderEntity();
-				entity.setPno(et_name.getText().toString());
-				entity.setPnum(Integer.parseInt(et_no.getText().toString()));
+				entity.setPno(et_no.getText().toString());
+				Log.e("Pno", et_no.getText().toString());
+				entity.setPnum(Integer.parseInt(et_4.getText().toString()));
+				Log.e("Pnum", et_4.getText().toString());
+				entity.setPbrand(et_name.getText().toString());
+				Log.e("Pbrand", et_name.getText().toString());
+				entity.setPsize(et_3.getText().toString());
+				Log.e("Psize", et_3.getText().toString());
 				entitys.add(entity);
 				adapter.notifyDataSetChanged();
 			}

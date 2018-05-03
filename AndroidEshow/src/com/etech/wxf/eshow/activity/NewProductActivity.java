@@ -24,7 +24,7 @@ public class NewProductActivity extends Activity{
 			+ "/wxf/products/new_product";
 	
 	private TextView tv1, tv3, tv5, tv7, tvtitle, tvedit;
-	private EditText et1, et3, et5, et7;
+	private EditText et1, et3, et5;
 	private ViewGroup tv_top;
 	private Button btn1;
 	
@@ -58,7 +58,6 @@ public class NewProductActivity extends Activity{
 		et1 = (EditText)findViewById(R.id.et_1);
 		et3 = (EditText)findViewById(R.id.et_3);
 		et5 = (EditText)findViewById(R.id.et_5);
-		et7 = (EditText)findViewById(R.id.et_7);
 		btn1 = (Button)findViewById(R.id.btn_1);
 		btn1.setOnClickListener(new_product);
 
@@ -76,10 +75,10 @@ public class NewProductActivity extends Activity{
 
 			try {
 				final JSONObject obj = new JSONObject();
-				obj.put("Pno", et1.getText().toString());
-				obj.put("Pname", et3.getText().toString());
-				obj.put("Pbrand", et5.getText().toString());
-				obj.put("Psize", Integer.parseInt(et7.getText().toString()));
+				obj.put("Pbrand", et1.getText().toString());
+				obj.put("Pno", et3.getText().toString());
+				obj.put("Pname", "ÉÌÆ·Ãû³Æ");
+				obj.put("Psize", deal_size(et5.getText().toString()));
 				if(obj != null){
 					new Thread(){
 						public void run(){
@@ -109,6 +108,26 @@ public class NewProductActivity extends Activity{
 		}
 		
 	};
+	
+	private int deal_size(String size){
+		int deal_size = 0;
+		if(size.equals("XS")){
+			deal_size = 1;
+		}else if(size.equals("S")){
+			deal_size = 2;
+		}else if(size.equals("M")){
+			deal_size = 3;
+		}else if(size.equals("L")){
+			deal_size = 4;
+		}else if(size.equals("XL")){
+			deal_size = 5;
+		}else if(size.equals("XXL")){
+			deal_size = 6;
+		}else{
+			deal_size = 0;
+		}
+		return deal_size;
+	}
 	
 	private OnClickListener back = new OnClickListener(){
 

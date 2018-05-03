@@ -150,3 +150,47 @@ class SSaleOrders():
         finally:
             self.session.close()
         return ostatus
+
+    @trans_params
+    def get_oid_by_time_s(self, potime):
+        poid = None
+        try:
+            poid = self.session.query(model.SaleOrders.Oid).filter_by(Ostatus=201).filter(
+                model.SaleOrders.Otime.like("{0}%".format(potime))).all()
+        except Exception as e:
+            print "=====================message========================"
+            print e.message
+            print "=====================message========================"
+            self.session.rollback()
+        finally:
+            self.session.close()
+        return poid
+
+    @trans_params
+    def get_oid_by_time_rs(self, potime):
+        poid = None
+        try:
+            poid = self.session.query(model.SaleOrders.Oid).filter_by(Ostatus=202).filter(
+                model.SaleOrders.Otime.like("{0}%".format(potime))).all()
+        except Exception as e:
+            print "=====================message========================"
+            print e.message
+            print "=====================message========================"
+            self.session.rollback()
+        finally:
+            self.session.close()
+        return poid
+
+    @trans_params
+    def get_onum_by_poid(self, poid):
+        pnum = None
+        try:
+            pnum = self.session.query(model.SOitems.Pnum).filter_by(Oid=poid).all()
+        except Exception as e:
+            print "=====================message========================"
+            print e.message
+            print "=====================message========================"
+            self.session.rollback()
+        finally:
+            self.session.close()
+        return pnum

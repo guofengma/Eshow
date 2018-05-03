@@ -34,6 +34,7 @@ public class MainActivity extends Activity{
 		tv2.setOnClickListener(tabClickListener);
 		tv3 = (TextView)findViewById(R.id.bar_text3);
 		findViewById(R.id.bar_text3).setOnClickListener(tabClickListener);
+		//tv3.setVisibility(View.GONE);
 		tv4 = (TextView)findViewById(R.id.bar_text4);
 		tv4.setOnClickListener(tabClickListener);
 		Intent intent = getIntent();

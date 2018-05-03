@@ -5,12 +5,12 @@ public class CountEntity {
 	private int Psalenum;
 	private int Presalenum;
 	private int Purchasenum;
-	private int Pmonth;
+	private String Pmonth;
 	
-	public int getPmonth() {
+	public String getPmonth() {
 		return Pmonth;
 	}
-	public void setPmonth(int pmonth) {
+	public void setPmonth(String pmonth) {
 		Pmonth = pmonth;
 	}
 	public int getPsalenum() {

@@ -72,7 +72,7 @@ public class SaleOrderFragment extends Fragment{
 		tv1 = (TextView)view.findViewById(R.id.tv_top).findViewById(R.id.tv_title);
 		tv2 = (TextView)view.findViewById(R.id.tv_top).findViewById(R.id.tv_edit);
 		tv1.setText("销售单");
-		tv2.setText("新增");
+		tv2.setText("+");
 		tv2.setOnClickListener(add);
 		
 		setText(order_list);
@@ -101,7 +101,7 @@ public class SaleOrderFragment extends Fragment{
 			Intent intent = new Intent(getActivity(), SaleOrderActivity.class);
 			intent.putExtra("Uid", Uid);
 			intent.putExtra("Oid", entitys.get(position).getOid());
-			intent.putExtra("index", 0);
+			intent.putExtra("index", 1);
 			startActivity(intent);
 			getActivity().finish();
 		}

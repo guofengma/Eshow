@@ -48,22 +48,40 @@ public class OrderItemAdapter extends BaseAdapter{
 		if(convertView == null){
 			holder = new ViewHolder();
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_product_order, null);
-			holder.Pno = (TextView)convertView.findViewById(R.id.tv_2);
-			holder.Pname = (TextView)convertView.findViewById(R.id.tv_4);
-			holder.Pbrand = (TextView)convertView.findViewById(R.id.tv_6);
-			holder.Psize = (TextView)convertView.findViewById(R.id.tv_8);
-			holder.Pnum = (TextView)convertView.findViewById(R.id.tv_10);
+			holder.Pno = (TextView)convertView.findViewById(R.id.tv_4);
+			holder.Pbrand = (TextView)convertView.findViewById(R.id.tv_2);
+			holder.Psize = (TextView)convertView.findViewById(R.id.tv_6);
+			holder.Pnum = (TextView)convertView.findViewById(R.id.tv_8);
 		}else{
 			holder = (ViewHolder)convertView.getTag();
 		}
 		OrderItemEntity entity = entitys.get(position);
 		holder.Pno.setText(entity.getPno());
 		holder.Pbrand.setText(entity.getPbrand());
-		holder.Pname.setText(entity.getPname());
-		holder.Psize.setText(entity.getPsize() + "Âë");
-		holder.Pnum.setText(entity.getPnum() + "Ôª");
+		holder.Psize.setText(deal_size(entity.getPsize()));
+		holder.Pnum.setText(entity.getPnum() + "¼þ");
 		convertView.setTag(holder);
 		return convertView;
+	}
+	
+	private String deal_size(int size){
+		String deal_size = "";
+		if(size == 1){
+			deal_size = "XS";
+		}else if(size == 2){
+			deal_size = "S";
+		}else if(size == 3){
+			deal_size = "M";
+		}else if(size == 4){
+			deal_size = "L";
+		}else if(size == 5){
+			deal_size = "XL";
+		}else if(size == 6){
+			deal_size = "XXL";
+		}else{
+			deal_size = "Î´Öª";
+		}
+		return deal_size;
 	}
 	
 	private class ViewHolder{

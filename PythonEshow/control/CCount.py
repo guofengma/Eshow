@@ -148,3 +148,44 @@ class CCount():
         response_ok["data"] = data
 
         return response_ok
+
+    def get_num_by_time(self):
+        # time_now = datetime.datetime.strftime(datetime.datetime.now() + datetime.timedelta(days=1), "%Y%m%d")
+        time_now = datetime.datetime.now() + datetime.timedelta(days=1)
+        i = 0
+        data = []
+        while i < 7:
+            data_item = {}
+            num = 0
+            num_s = 0
+            num_rs = 0
+            time = datetime.datetime.strftime(time_now + datetime.timedelta(days=-i-1), "%Y%m%d")
+            poid_list = self.spurchaseorders.get_poid_by_time(time)
+            oid_list = self.saleorders.get_oid_by_time_s(time)
+            roid_list = self.saleorders.get_oid_by_time_rs(time)
+            for row in poid_list:
+                pnum_list = self.spurchaseorders.get_pnum_by_poid(row)
+                for raw in pnum_list:
+                    num = num + raw
+
+            for ruw in oid_list:
+                pnum_list = self.saleorders.get_onum_by_poid(ruw)
+                for rsw in pnum_list:
+                    num_s = num_s + rsw
+
+            for rtw in roid_list:
+                pnum_list = self.saleorders.get_onum_by_poid(rtw)
+                for rww in pnum_list:
+                    num_rs = num_rs + rww
+
+            data_item["time"] = time
+            data_item["Purchasenum"] = num
+            data_item["Salenum"] = num_s
+            data_item["RSalenum"] = num_rs
+            i = i + 1
+            data.append(data_item)
+
+        response_ok["data"] = data
+        return response_ok
+
+

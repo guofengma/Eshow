@@ -47,14 +47,14 @@ public class PurchaseOrderAdapter extends BaseAdapter{
 			holder = new ViewHolder();
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_purchaseorder, null);
 			holder.POtime = (TextView)convertView.findViewById(R.id.tv_2);
-			holder.POstatus = (TextView)convertView.findViewById(R.id.tv_4);
+			//holder.POstatus = (TextView)convertView.findViewById(R.id.tv_4);
 			holder.POprice = (TextView)convertView.findViewById(R.id.tv_6);
 		}else{
 			holder = (ViewHolder)convertView.getTag();
 		}
 		PurchaseOrderEntity entity = entitys.get(position);
 		holder.POtime.setText(entity.getPOtime());
-		holder.POstatus.setText(entity.getPOstatus());
+		//holder.POstatus.setText(entity.getPOstatus());
 		holder.POprice.setText(entity.getPOprice());
 		convertView.setTag(holder);
 		return convertView;

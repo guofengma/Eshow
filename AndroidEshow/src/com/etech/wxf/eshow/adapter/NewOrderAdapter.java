@@ -48,20 +48,24 @@ public class NewOrderAdapter extends BaseAdapter{
 		if(convertView == null){
 			holder = new ViewHolder();
 			convertView = LayoutInflater.from(context).inflate(R.layout.item_new_order, null);
-			holder.Pnum = (TextView)convertView.findViewById(R.id.tv_4);
-			holder.Pno = (TextView)convertView.findViewById(R.id.tv_2);
+			holder.Pnum = (TextView)convertView.findViewById(R.id.tv_8);
+			holder.Pno = (TextView)convertView.findViewById(R.id.tv_4);
+			holder.Pbrand = (TextView)convertView.findViewById(R.id.tv_2);
+			holder.Psize = (TextView)convertView.findViewById(R.id.tv_6);
 		}else{
 			holder = (ViewHolder)convertView.getTag();
 		}
 		NewOrderEntity entity = entitys.get(position);
 		holder.Pno.setText(entity.getPno());
 		holder.Pnum.setText(entity.getPnum() + "¼þ");
+		holder.Pbrand.setText(entity.getPbrand());
+		holder.Psize.setText(entity.getPsize());
 		convertView.setTag(holder);
 		return convertView;
 	}
 	
 	private class ViewHolder{
-		private TextView Pno, Pnum;
+		private TextView Pno, Pnum, Pbrand, Psize;
 	}
 
 }
